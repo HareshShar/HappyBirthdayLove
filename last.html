@@ -356,6 +356,53 @@
                 font-size: 2.5rem;
             }
         }
+
+.memory-flip {
+    perspective: 1000px;
+    display: inline-block;
+    /* By default, show the back */
+    transform-style: preserve-3d;
+}
+
+
+.memory-card {
+    width: 100%; /* keep original size */
+    backface-visibility: hidden;
+    transition: transform 0.6s;
+    border-radius: 20px; /* keep your styling */
+}
+
+.memory-flip .front {
+    transform: rotateY(180deg); /* hide front */
+    position: relative;
+    z-index: 2;
+}
+
+.memory-flip .back {
+    transform: rotateY(0deg); /* show back */
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    color: #ff69b4;
+    background: #ffebf0;
+    border-radius: 20px;
+}
+
+.memory-flip.flipped .front {
+    transform: rotateY(180deg);
+}
+
+.memory-flip.flipped .back {
+    transform: rotateY(0deg);
+}
+
     </style>
 </head>
 
@@ -375,26 +422,40 @@
         <p>Every moment spent with you has been magical. Let's cherish these precious memories ...</p>
     </section>
 
-    <div class="memory-container">
-        <div class="memory-card">
+<div class="memory-container">
+    <div class="memory-flip">
+        <div class="memory-card front">
             <img src="./d1.jpg" alt="First Date" class="memory-img">
             <div class="memory-date">Her Smile Says It All</div>
-            <div class="memory-caption">You’re truly one of the sweetest girls I know, and I feel lucky to have a sis
-                like you.❤️</div>
+            <div class="memory-caption">You’re truly one of the sweetest girls I know, and I feel lucky to have a sis ❤️</div>
         </div>
-        <div class="memory-card">
+        <div class="memory-card back">
+            <div class="memory-back-content">Click to Reveal 💖</div>
+        </div>
+    </div>
+
+    <div class="memory-flip">
+        <div class="memory-card front">
             <img src="./d2.jpg" alt="Beach Day" class="memory-img">
             <div class="memory-date">Together Vibes</div>
-            <div class="memory-caption">May your journey ahead be filled with happiness, success, and endless
-                smiles.😊💕</div>
+            <div class="memory-caption">May your journey ahead be filled with happiness, success, and endless smiles 😊💕</div>
         </div>
-        <div class="memory-card">
+        <div class="memory-card back">
+            <div class="memory-back-content">Click to Reveal 💖</div>
+        </div>
+    </div>
+
+    <div class="memory-flip">
+        <div class="memory-card front">
             <img src="./d3.jpg" alt="Movie Night" class="memory-img">
             <div class="memory-date">Pretty Soul</div>
-            <div class="memory-caption">Keep being the amazing person you are—you make every moment brighter.🌸💖</div>
+            <div class="memory-caption">Keep being the amazing person you are—you make every moment brighter 🌸💖</div>
         </div>
-
+        <div class="memory-card back">
+            <div class="memory-back-content">Click to Reveal 💖</div>
+        </div>
     </div>
+</div>
 
     <section class="final-message">
         <h2>Thank You for the Memories</h2>
@@ -404,6 +465,20 @@
         <p>You deserve all the joy in the world—keep shining and spreading your beautiful energy.✨</p>
 <a href="ending.html" class="goodbye-btn">Until We Meet Again 💝</a>
     </section>
+
+<script>
+const flipCards = document.querySelectorAll('.memory-flip');
+
+flipCards.forEach(card => {
+    card.addEventListener('click', () => {
+        // Flip front to show
+        card.querySelector('.front').style.transform = 'rotateY(0deg)';
+        card.querySelector('.back').style.transform = 'rotateY(180deg)';
+    });
+});
+</script>
+
+
 </body>
 
 </html>

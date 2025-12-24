@@ -147,23 +147,41 @@ document.addEventListener('mousemove', (e) => {
 // Create initial floating elements
 setInterval(createFloatingElement, 2000);
 
-const birthdayDate = new Date("December 25, 2025 00:00:00").getTime();
+    function updateAgeTracker() {
+        const birthDate = new Date("2004-12-21T00:00:00");
+        const now = new Date();
 
-const countdownFunction = setInterval(() => {
-    const now = new Date().getTime();
-    const distance = birthdayDate - now;
+        let diff = now - birthDate;
 
-    if (distance < 0) {
-        clearInterval(countdownFunction);
-        document.getElementById("countdown").innerHTML = "🎉 Happy Birthday! 🎉";
-        return;
+        let years = Math.floor(diff / (1000 * 60 * 60 * 24 * 365.25));
+        diff -= years * (1000 * 60 * 60 * 24 * 365.25);
+
+        let months = Math.floor(diff / (1000 * 60 * 60 * 24 * 30.44));
+        diff -= months * (1000 * 60 * 60 * 24 * 30.44);
+
+        let days = Math.floor(diff / (1000 * 60 * 60 * 24));
+        diff -= days * (1000 * 60 * 60 * 24);
+
+        let hours = Math.floor(diff / (1000 * 60 * 60));
+        diff -= hours * (1000 * 60 * 60);
+
+        let minutes = Math.floor(diff / (1000 * 60));
+        diff -= minutes * (1000 * 60);
+
+        let seconds = Math.floor(diff / 1000);
+
+        // Build heart elements
+        const html = `
+            <div class="heart beat">❤️ <span>${years}</span> Years</div>
+            <div class="heart beat">❤️ <span>${months}</span> Months</div>
+            <div class="heart beat">❤️ <span>${days}</span> Days</div>
+            <div class="heart beat">❤️ <span>${hours}</span> Hours</div>
+            <div class="heart beat">❤️ <span>${minutes}</span> Minutes</div>
+            <div class="heart beat">❤️ <span>${seconds}</span> Seconds</div>
+        `;
+
+        document.getElementById("countdown").innerHTML = html;
     }
 
-    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-    const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-    const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-    const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-    document.getElementById("countdown").innerHTML =
-        days + "d " + hours + "h " + minutes + "m " + seconds + "s ";
-}, 1000);
+    setInterval(updateAgeTracker, 1000);
+    updateAgeTracker();
