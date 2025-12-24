@@ -42,9 +42,9 @@
     100% { transform: translateY(110vh) rotate(360deg); }
   }
 
-  #score {
+#score {
     position: fixed;
-    top: 15px;
+    bottom: 15px;       /* distance from bottom */
     left: 50%;
     transform: translateX(-50%);
     font-size: 1.5rem;
@@ -54,7 +54,8 @@
     color: #ff69b4;
     z-index: 1000;
     font-weight: bold;
-  }
+}
+
 
   /* Modal */
   .modal {
@@ -98,13 +99,13 @@
 <body>
 
 <div id="instruction">🎯 Click on the hearts 💖 to collect points! 🎈🎂🎉</div>
-<div id="score">Score: 0</div>
 <div id="game-area"></div>
+<div id="score">Score: 0</div>
 
 <!-- Modal -->
 <div id="modal" class="modal">
   <div class="modal-content">
-    <h2>🎉 Congrats Baby! 🎉</h2>
+    <h2>🎉 HAHAHAHA, Congrats Sayangggg! 💗🎉</h2>
     <p>You collected 10 hearts! You can now see your birthday letter 💌</p>
     <button onclick="window.location.href='birthday-letter.html'">Go to Letter</button>
   </div>

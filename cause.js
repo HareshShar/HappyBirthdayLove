@@ -1,22 +1,22 @@
  // Reasons database
  const reasons = [
     { 
-        text: "You’re such a kind and wonderful person, and I feel lucky to share such a good bond with you. 💖", 
+        text: "You’re ridiculously amazing, and somehow I got lucky enough to call you mine. 💖", 
         emoji: "🌟",
         gif: "gif1.gif"
     },
     { 
-        text: "May your day be filled with love, laughter, and endless joy. 🌸 ", 
+        text:  "May your day be full of laughter, love, and just enough cake to make life perfect. 🌸 ", 
         emoji: "💗",
         gif: "gif2.gif"
     },
     { 
-        text: "Wishing you success, happiness, and everything your heart desires. ✨ ", 
+        text: "Wishing you all the happiness, success, and dreams your heart secretly wishes for… and maybe a few surprises too ✨ ", 
         emoji: "💕",
         gif: "gif1.gif"
     },
     { 
-        text: "Stay the amazing girl you are—always spreading positivity around. Have the happiest year ahead! 🥳 ", 
+        text: "Stay the amazing, slightly dramatic, and unbelievably cute girl you are—keep shining and annoying me in the best way possible  🥳 ", 
         emoji: "🌟",
         gif: "gif2.gif"
     }
@@ -76,7 +76,7 @@ function displayNewReason() {
                 duration: 0.5,
                 ease: "elastic.out",
                 onComplete: () => {
-                    shuffleButton.textContent = "Enter Our Storylane 💫";
+                    shuffleButton.textContent = "Tekan disini sayangku💫";
                     shuffleButton.classList.add('story-mode');
                     shuffleButton.addEventListener('click', () => {
                         gsap.to('body', {
@@ -148,7 +148,7 @@ document.addEventListener('mousemove', (e) => {
 setInterval(createFloatingElement, 2000);
 
     function updateAgeTracker() {
-        const birthDate = new Date("2004-12-21T00:00:00");
+        const birthDate = new Date("2004-12-25T00:00:00");
         const now = new Date();
 
         let diff = now - birthDate;
